@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 from download_image import download_image
+import os
+from dotenv import load_dotenv
 
 
 def download_epic_images(api):
@@ -17,7 +19,8 @@ def download_epic_images(api):
         download_image(epic_url, f'{epic_name}.png')
 
 def main():
-    api =  "gP9Gcmr1GW9V3I4JEoYZJMnjiw9almxBYFw95Vsw"
+    load_dotenv()
+    api =  os.environ["NASA_API_KEY"]
     download_epic_images(api)
 
 if __name__=="__main__":

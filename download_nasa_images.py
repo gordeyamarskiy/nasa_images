@@ -2,6 +2,7 @@ import requests
 from urllib.parse import urlparse, unquote
 import os
 from download_image import download_image
+from dotenv import load_dotenv
 
 def split_resolution(url):
     unquote_url = unquote(url)
@@ -23,7 +24,8 @@ def download_nasa_images(api):
         download_image(nasa_link_image, f'nasa_apod_{number}{nasa_resolution}')
 
 def main():
-    api =  "gP9Gcmr1GW9V3I4JEoYZJMnjiw9almxBYFw95Vsw"
+    load_dotenv()
+    api =  os.environ["NASA_API_KEY"]
     download_nasa_images(api)
 
 if __name__=="__main__":
