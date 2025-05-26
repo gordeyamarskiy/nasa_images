@@ -16,7 +16,7 @@ pip install  -r requirements.txt
 
 ```
 
-## Пример заупска скрипта
+## Пример запуска скрипта
 
 Для запуска скрипта у вас уже должен быть установлен Python3.
 
@@ -39,10 +39,37 @@ python main.py
 NASA_API_KEY = "nasa-token"
 TG_TOKEN = "bot-token"
 TG_CHAT_ID = "@chat_id"
+LAUNCH_ID = "необходимый вам id запуска spacex"
 
 ```
 
 Получить токен ```NASA_API_KEY``` можно на официальном сайте NASA. Получить токен ```TG_TOKEN``` можно у telegram-бота "@BotFather". В описании канала получите название и положите в переменную ```TG_CHAT_ID```.
+
+## Получение изображений
+
+Для получения картинок NASA_apod, введите
+
+```python
+
+python download_nasa_images.py
+
+```
+
+Для получения картинок NASA_EPIC, введите
+
+```
+
+python download_epic_images.py
+
+```
+
+Для получения картинок SPACEX, введите 
+
+```
+
+python fetch_spacex_images.py
+
+```
 
 ## Цель проекта
 

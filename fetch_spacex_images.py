@@ -1,17 +1,24 @@
 import requests
 from download_image import download_image
+from dotenv import load_dotenv
+import os
 
-def fetch_spacex_last_launch():
-    spacex_url = "https://api.spacexdata.com/v5/launches/5eb87d47ffd86e000604b38a"
+
+def fetch_spacex_last_launch(launch_id):
+    spacex_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     responce = requests.get(spacex_url)
     responce.raise_for_status()
     spacex_links = responce.json()["links"]["flickr"]["original"]
 
     for number, link in enumerate(spacex_links):
-        download_image(link, f'spacex{number}.jpg')
+        download_image(link, f"spacex{number}.jpg")
+
 
 def main():
-    fetch_spacex_last_launch()
+    load_dotenv()
+    launch_id = os.environ.get("LAUNCH_ID", "5eb87d47ffd86e000604b38a")
+    fetch_spacex_last_launch(launch_id)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()
