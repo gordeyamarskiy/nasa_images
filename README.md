@@ -24,7 +24,7 @@ pip install  -r requirements.txt
 
 ```python
 
-python main.py
+python upload_photo.py
 
 ```
 
